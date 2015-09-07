@@ -25,15 +25,24 @@ public class CanvasGame extends myCanvas {
 
 	// private SquareController sqrctl2;
 
-	public CanvasGame(int dificuldade) {
+	public CanvasGame(int dif) {
+
+		dificuldade = dif;
+		// GamePanel.dificuldade = dif;
 
 		instance = this;
 
-		p1 = new Player(1);
-
 		if (GamePanel.numPlayers == 2) {
+
+			GamePanel.PWIDTH = 1200;
+
+			GamePanel.instance.resize();
+
 			p2 = new Player(2);
+
 		}
+
+		p1 = new Player(1);
 
 		// CanvasGame.dificuldade = dificuldade;
 		//
@@ -57,8 +66,10 @@ public class CanvasGame extends myCanvas {
 	public void SimulaSe(long diftime) {
 
 		p1.SimulaSe(diftime);
-		p2.SimulaSe(diftime);
+		if (GamePanel.numPlayers == 2) {
 
+			p2.SimulaSe(diftime);
+		}
 		// sqrctl.updateSquares(hitCtl.getX(), hitCtl.getY());
 		//
 		// sqrctl.SimulaSe(diftime);
@@ -76,9 +87,9 @@ public class CanvasGame extends myCanvas {
 	public void DesenhaSe(Graphics2D dbg) {
 
 		p1.DesenhaSe(dbg);
-		p2.DesenhaSe(dbg);
 
 		if (GamePanel.numPlayers == 2) {
+			p2.DesenhaSe(dbg);
 			dbg.setColor(Color.black);
 
 			dbg.drawLine(GamePanel.PWIDTH / 2, 0, GamePanel.PWIDTH / 2,
@@ -104,14 +115,18 @@ public class CanvasGame extends myCanvas {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		p1.keyPressed(e);
-		p2.keyPressed(e);
+		if (GamePanel.numPlayers == 2) {
+			p2.keyPressed(e);
+		}
 
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		p1.keyReleased(e);
-		p2.keyReleased(e);
+		if (GamePanel.numPlayers == 2) {
+			p2.keyReleased(e);
+		}
 	}
 
 	@Override

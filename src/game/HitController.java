@@ -51,7 +51,7 @@ public class HitController implements Runnable {
 
 			chosenX = rng.nextInt(3);
 			chosenY = rng.nextInt(3);
-//			System.out.println(player.vidas);
+			// System.out.println(player.vidas);
 			// System.out.println(chosenX + " " + chosenY);
 
 		}

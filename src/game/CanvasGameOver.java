@@ -8,8 +8,11 @@ import java.awt.event.MouseEvent;
 
 public class CanvasGameOver extends myCanvas {
 
-	public CanvasGameOver(int p1Score, int p2Score) {
+	private int p1s, p2s;
 
+	public CanvasGameOver(int p1Score, int p2Score) {
+		p1s = p1Score;
+		p2s = p2Score;
 	}
 
 	@Override
@@ -24,20 +27,50 @@ public class CanvasGameOver extends myCanvas {
 
 		dbg.fillRect(0, 0, GamePanel.PWIDTH, GamePanel.PHEIGHT);
 
-		dbg.setColor(Color.white);
+		if (GamePanel.numPlayers == 1) {
 
-		dbg.setFont(new Font("Raavi", Font.PLAIN, 40));
+			dbg.setColor(Color.white);
 
-		dbg.drawString("You lost!", GamePanel.PWIDTH / 2 - 50, 100);
+			dbg.setFont(new Font("Raavi", Font.PLAIN, 40));
 
-		dbg.drawString("Pontuação:", GamePanel.PWIDTH / 2 - 120, 200);
+			dbg.drawString("You lost!", GamePanel.PWIDTH / 2 - 50, 100);
 
-		// dbg.drawString(Integer.toString(CanvasGame.pontuacao),
-		// GamePanel.PWIDTH / 2 - 50, 300);
+			dbg.drawString("Pontuação:", GamePanel.PWIDTH / 2 - 120, 200);
 
-		dbg.setFont(new Font("Raavi", Font.PLAIN, 25));
+			dbg.drawString(Integer.toString(p1s), GamePanel.PWIDTH / 2 - 50,
+					300);
 
-		dbg.drawString("Aperte espaço para jogar novamente", 120, 400);
+			dbg.setFont(new Font("Raavi", Font.PLAIN, 25));
+
+			dbg.drawString("Aperte espaço para jogar novamente", 120, 400);
+
+		} else {
+
+			dbg.setColor(Color.white);
+
+			dbg.setFont(new Font("Raavi", Font.PLAIN, 40));
+
+			if (p1s == p2s) {
+				dbg.drawString("Empate!", GamePanel.PWIDTH / 2 - 50, 100);
+			} else if (p1s > p2s) {
+				dbg.drawString("Jogador 1 ganhou!", GamePanel.PWIDTH / 2 - 50,
+						100);
+			} else if (p1s < p2s) {
+				dbg.drawString("Jogador 2 ganhou!", GamePanel.PWIDTH / 2 - 50,
+						100);
+			}
+
+			dbg.drawString("Pontuação:", GamePanel.PWIDTH / 2 - 120, 200);
+
+			dbg.drawString("Jogador 1: " + p1s, GamePanel.PWIDTH / 2 - 50, 300);
+
+			dbg.drawString("Jogador 2: " + p2s, GamePanel.PWIDTH / 2 - 50, 350);
+
+			dbg.setFont(new Font("Raavi", Font.PLAIN, 25));
+
+			dbg.drawString("Aperte espaço para jogar novamente", 480, 500);
+
+		}
 
 	}
 
@@ -56,7 +89,7 @@ public class CanvasGameOver extends myCanvas {
 		}
 
 		if (keyCode == KeyEvent.VK_SPACE) {
-			GamePanel.canvasAtivo = new CanvasMenu();
+			GamePanel.canvasAtivo = new CanvasGame(CanvasGame.dificuldade);
 		}
 
 	}

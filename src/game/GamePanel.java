@@ -1,5 +1,5 @@
 /*
- * v1.1 
+ * v1.2 
  */
 
 package game;
@@ -26,7 +26,9 @@ public class GamePanel extends JPanel implements Runnable {
 
 	public static int numPlayers = 2;
 
-	public static final int PWIDTH = 600 * numPlayers;
+	// public static int dificuldade = 0;
+
+	public static int PWIDTH = 600;
 	public static final int PHEIGHT = 600;
 
 	private static Dimension screenSize = Toolkit.getDefaultToolkit()
@@ -38,6 +40,8 @@ public class GamePanel extends JPanel implements Runnable {
 	public static int diftime = 0;
 
 	public static GamePanel instance;
+
+	public static JFrame mainFrame;
 
 	private Thread animator;
 	private boolean running = false;
@@ -71,7 +75,8 @@ public class GamePanel extends JPanel implements Runnable {
 				System.out.println("dbImage is null");
 				return;
 			} else {
-				dbg = (Graphics2D) dbImage.getGraphics();
+				// dbg = (Graphics2D) dbImage.getGraphics();
+				dbg = dbImage.createGraphics();
 			}
 		}
 
@@ -145,6 +150,7 @@ public class GamePanel extends JPanel implements Runnable {
 			}
 		});
 
+		// canvasAtivo = new CanvasPlayers();
 		canvasAtivo = new CanvasMenu();
 
 	} // end of GamePanel()
@@ -226,6 +232,7 @@ public class GamePanel extends JPanel implements Runnable {
 		if (canvasAtivo != null) {
 			canvasAtivo.DesenhaSe(dbg);
 		}
+
 	}
 
 	public void paintComponent(Graphics g) {
@@ -236,12 +243,15 @@ public class GamePanel extends JPanel implements Runnable {
 
 	public static void main(String args[]) {
 
-		System.out.println(SWIDTH + " " + SHEIGHT);
+		System.out.println("Screen dimension: " + SWIDTH + " " + SHEIGHT);
 
 		GamePanel ttPanel = new GamePanel();
 
 		// create a JFrame to hold the timer test JPanel
 		JFrame app = new JFrame(title);
+
+		mainFrame = app;
+
 		app.getContentPane().add(ttPanel, BorderLayout.CENTER);
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -254,10 +264,30 @@ public class GamePanel extends JPanel implements Runnable {
 
 	} // end of main()
 
-	
-	
-	public static int getDiftime() {
-		return diftime;
+	// resize to fit two players
+	public void resize() {
+
+		System.out.println("Resizing panel and frame");
+
+		instance.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
+
+		mainFrame.pack();
+
+		mainFrame.setLocation((int) (SWIDTH - PWIDTH) / 2,
+				(int) (SHEIGHT - PHEIGHT) / 2);
+
+		// if (dbImage == null) {
+		dbImage = new BufferedImage(PWIDTH, PHEIGHT,
+				BufferedImage.TYPE_INT_ARGB);
+		if (dbImage == null) {
+			System.out.println("dbImage is null");
+			return;
+		} else {
+			// dbg = (Graphics2D) dbImage.getGraphics();
+			dbg = dbImage.createGraphics();
+		}
+		// }
+
 	}
 
 } // end of GamePanel class
