@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel implements Runnable {
 
 	public static boolean playingMusic = false;
-	
+
 	public static int numPlayers = 2;
 
 	public static final int PWIDTH = 600 * numPlayers;
@@ -78,6 +78,11 @@ public class GamePanel extends JPanel implements Runnable {
 		// Adiciona um Key Listner
 		addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
+
+				if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+					instance.stopGame();
+				}
+
 				if (canvasAtivo != null) {
 					canvasAtivo.keyPressed(e);
 				}
@@ -241,12 +246,16 @@ public class GamePanel extends JPanel implements Runnable {
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		app.pack();
+
 		app.setResizable(false);
 		app.setLocation((int) (SWIDTH - PWIDTH) / 2,
 				(int) (SHEIGHT - PHEIGHT) / 2);
 		app.setVisible(true);
+
 	} // end of main()
 
+	
+	
 	public static int getDiftime() {
 		return diftime;
 	}

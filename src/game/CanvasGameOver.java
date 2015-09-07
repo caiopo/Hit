@@ -8,6 +8,10 @@ import java.awt.event.MouseEvent;
 
 public class CanvasGameOver extends myCanvas {
 
+	public CanvasGameOver(int p1Score, int p2Score) {
+
+	}
+
 	@Override
 	public void SimulaSe(long diftime) {
 
@@ -28,9 +32,8 @@ public class CanvasGameOver extends myCanvas {
 
 		dbg.drawString("Pontuação:", GamePanel.PWIDTH / 2 - 120, 200);
 
-		dbg.drawString(Integer.toString(CanvasGame.pontuacao),
-				GamePanel.PWIDTH / 2 - 50, 300);
-
+		// dbg.drawString(Integer.toString(CanvasGame.pontuacao),
+		// GamePanel.PWIDTH / 2 - 50, 300);
 
 		dbg.setFont(new Font("Raavi", Font.PLAIN, 25));
 
