@@ -24,9 +24,11 @@ public class GamePanel extends JPanel implements Runnable {
 
 	public static boolean playingMusic = false;
 
-	public static int numPlayers = 2;
+	public static int numPlayers = 1;
 
-	public static final int PWIDTH = 600 * numPlayers;
+	// public static int dificuldade = 0;
+
+	public static int PWIDTH = 600;
 	public static final int PHEIGHT = 600;
 
 	private static Dimension screenSize = Toolkit.getDefaultToolkit()
@@ -38,6 +40,8 @@ public class GamePanel extends JPanel implements Runnable {
 	public static int diftime = 0;
 
 	public static GamePanel instance;
+
+	public static JFrame mainFrame;
 
 	private Thread animator;
 	private boolean running = false;
@@ -145,7 +149,7 @@ public class GamePanel extends JPanel implements Runnable {
 			}
 		});
 
-		canvasAtivo = new CanvasMenu();
+//		canvasAtivo = new CanvasPlayers();
 
 	} // end of GamePanel()
 
@@ -242,6 +246,9 @@ public class GamePanel extends JPanel implements Runnable {
 
 		// create a JFrame to hold the timer test JPanel
 		JFrame app = new JFrame(title);
+
+		mainFrame = app;
+
 		app.getContentPane().add(ttPanel, BorderLayout.CENTER);
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -251,13 +258,29 @@ public class GamePanel extends JPanel implements Runnable {
 		app.setLocation((int) (SWIDTH - PWIDTH) / 2,
 				(int) (SHEIGHT - PHEIGHT) / 2);
 		app.setVisible(true);
+		
+		canvasAtivo = new CanvasPlayers();
 
 	} // end of main()
 
-	
-	
-	public static int getDiftime() {
-		return diftime;
+	// resize to fit two players
+	public void resize() {
+
+		instance.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
+
+		mainFrame.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
+
+		mainFrame.setLocation((int) (SWIDTH - PWIDTH) / 2,
+				(int) (SHEIGHT - PHEIGHT) / 2);
+
+		mainFrame.pack();
+
+		instance = new GamePanel();
+
 	}
+
+	// public static int getDiftime() {
+	// return diftime;
+	// }
 
 } // end of GamePanel class

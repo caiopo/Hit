@@ -56,7 +56,7 @@ public class CanvasGameOver extends myCanvas {
 		}
 
 		if (keyCode == KeyEvent.VK_SPACE) {
-			GamePanel.canvasAtivo = new CanvasMenu();
+			GamePanel.canvasAtivo = new CanvasGame(CanvasGame.dificuldade);
 		}
 
 	}
