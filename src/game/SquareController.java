@@ -106,7 +106,7 @@ public class SquareController implements Runnable {
 	@Override
 	public void run() {
 
-		System.out.println("Creating Square Controller");
+		// System.out.println("Creating Square Controller");
 
 		for (int i = 0; i < squares.length; i++) {
 			for (int j = 0; j < squares[i].length; j++) {
@@ -127,7 +127,7 @@ public class SquareController implements Runnable {
 			}
 		}
 
-		System.out.println("Square Controller created!");
+		// System.out.println("Square Controller created!");
 
 	}
 

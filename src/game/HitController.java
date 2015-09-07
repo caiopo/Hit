@@ -10,6 +10,14 @@ public class HitController implements Runnable {
 
 	private int chosenX = rng.nextInt(3), chosenY = rng.nextInt(3);
 
+	private Player player = null;
+
+	public HitController(Player p) {
+
+		player = p;
+
+	}
+
 	@Override
 	public void run() {
 
@@ -23,7 +31,7 @@ public class HitController implements Runnable {
 
 				if (countPressed() > 0) {
 					if (hit()) {
-						CanvasGame.pontuacao++;
+						player.pontuacao++;
 						descontar = false;
 						break;
 					}
@@ -38,12 +46,12 @@ public class HitController implements Runnable {
 			}
 
 			if (descontar) {
-				CanvasGame.vidas--;
+				player.vidas--;
 			}
 
 			chosenX = rng.nextInt(3);
 			chosenY = rng.nextInt(3);
-			System.out.println(CanvasGame.vidas);
+			// System.out.println(player.vidas);
 			// System.out.println(chosenX + " " + chosenY);
 
 		}
@@ -59,9 +67,9 @@ public class HitController implements Runnable {
 
 	public int countPressed() {
 		int count = 0;
-		for (int i = 0; i < CanvasGame.keys.length; i++) {
-			for (int j = 0; j < CanvasGame.keys.length; j++) {
-				if (CanvasGame.keys[i][j]) {
+		for (int i = 0; i < player.keys.length; i++) {
+			for (int j = 0; j < player.keys.length; j++) {
+				if (player.keys[i][j]) {
 					count++;
 				}
 			}
@@ -72,10 +80,10 @@ public class HitController implements Runnable {
 	}
 
 	public boolean hit() {
-		for (int i = 0; i < CanvasGame.keys.length; i++) {
-			for (int j = 0; j < CanvasGame.keys.length; j++) {
+		for (int i = 0; i < player.keys.length; i++) {
+			for (int j = 0; j < player.keys.length; j++) {
 
-				if (CanvasGame.keys[i][j] && i == chosenY && j == chosenX
+				if (player.keys[i][j] && i == chosenY && j == chosenX
 						&& countPressed() == 1) {
 					return true;
 				}
