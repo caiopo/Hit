@@ -52,13 +52,13 @@ public class CanvasPlayers extends myCanvas {
 
 		if (key == KeyEvent.VK_1) {
 
-			GamePanel.canvasAtivo = new CanvasMenu();
+			GamePanel.canvasAtivo = new CanvasDif();
 
 		} else if (key == KeyEvent.VK_2) {
 
 			GamePanel.numPlayers = 2;
 
-			GamePanel.canvasAtivo = new CanvasMenu();
+			GamePanel.canvasAtivo = new CanvasDif();
 
 		}
 

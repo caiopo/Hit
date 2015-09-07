@@ -10,6 +10,7 @@ public class CanvasMenu extends myCanvas {
 
 	public CanvasMenu() {
 
+		System.out.println("OI");
 		if (!GamePanel.playingMusic) {
 
 			// try {
@@ -69,18 +70,19 @@ public class CanvasMenu extends myCanvas {
 		dbg.drawString("Aperte espaço para começar", 220, 580);
 
 		dbg.setFont(new Font("Raavi", Font.PLAIN, 10));
-		dbg.drawString("(v1.1) caiopoliveira@gmail.com", 460, 595);
+		dbg.drawString("(v1.2) caiopoliveira@gmail.com", 460, 595);
 
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 
-		if (e.getKeyCode() == KeyEvent.VK_SPACE
-				|| e.getKeyCode() == KeyEvent.VK_NUMPAD5
-				|| e.getKeyCode() == KeyEvent.VK_S) {
+		int key = e.getKeyCode();
 
-			GamePanel.canvasAtivo = new CanvasDif();
+		if (key == KeyEvent.VK_SPACE || key == KeyEvent.VK_NUMPAD5
+				|| key == KeyEvent.VK_S) {
+
+			GamePanel.canvasAtivo = new CanvasPlayers();
 
 		}
 

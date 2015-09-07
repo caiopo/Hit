@@ -1,5 +1,5 @@
 /*
- * v1.1 
+ * v1.2 
  */
 
 package game;
@@ -150,8 +150,8 @@ public class GamePanel extends JPanel implements Runnable {
 			}
 		});
 
-		canvasAtivo = new CanvasPlayers();
-		canvasAtivo = new CanvasPlayers();
+		// canvasAtivo = new CanvasPlayers();
+		canvasAtivo = new CanvasMenu();
 
 	} // end of GamePanel()
 
@@ -261,8 +261,6 @@ public class GamePanel extends JPanel implements Runnable {
 		app.setLocation((int) (SWIDTH - PWIDTH) / 2,
 				(int) (SHEIGHT - PHEIGHT) / 2);
 		app.setVisible(true);
-
-		canvasAtivo = new CanvasPlayers();
 
 	} // end of main()
 
