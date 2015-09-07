@@ -75,7 +75,8 @@ public class GamePanel extends JPanel implements Runnable {
 				System.out.println("dbImage is null");
 				return;
 			} else {
-				dbg = (Graphics2D) dbImage.getGraphics();
+				// dbg = (Graphics2D) dbImage.getGraphics();
+				dbg = dbImage.createGraphics();
 			}
 		}
 
@@ -149,6 +150,7 @@ public class GamePanel extends JPanel implements Runnable {
 			}
 		});
 
+		canvasAtivo = new CanvasPlayers();
 		canvasAtivo = new CanvasPlayers();
 
 	} // end of GamePanel()
@@ -230,8 +232,6 @@ public class GamePanel extends JPanel implements Runnable {
 		if (canvasAtivo != null) {
 			canvasAtivo.DesenhaSe(dbg);
 		}
-		dbg.setColor(Color.blue);
-		dbg.drawLine(0, 599, 600, 599);
 
 	}
 
@@ -243,7 +243,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 	public static void main(String args[]) {
 
-		System.out.println(SWIDTH + " " + SHEIGHT);
+		System.out.println("Screen dimension: " + SWIDTH + " " + SHEIGHT);
 
 		GamePanel ttPanel = new GamePanel();
 
@@ -269,14 +269,7 @@ public class GamePanel extends JPanel implements Runnable {
 	// resize to fit two players
 	public void resize() {
 
-		// instance.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
-		//
-		// mainFrame.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
-		//
-		// mainFrame.setLocation((int) (SWIDTH - PWIDTH) / 2,
-		// (int) (SHEIGHT - PHEIGHT) / 2);
-		//
-		// mainFrame.pack();
+		System.out.println("Resizing panel and frame");
 
 		instance.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
 
@@ -292,14 +285,11 @@ public class GamePanel extends JPanel implements Runnable {
 			System.out.println("dbImage is null");
 			return;
 		} else {
-			dbg = (Graphics2D) dbImage.getGraphics();
+			// dbg = (Graphics2D) dbImage.getGraphics();
+			dbg = dbImage.createGraphics();
 		}
 		// }
 
 	}
-
-	// public static int getDiftime() {
-	// return diftime;
-	// }
 
 } // end of GamePanel class

@@ -27,7 +27,7 @@ public class CanvasGameOver extends myCanvas {
 
 		dbg.fillRect(0, 0, GamePanel.PWIDTH, GamePanel.PHEIGHT);
 
-		if (GamePanel.numPlayers == 2) {
+		if (GamePanel.numPlayers == 1) {
 
 			dbg.setColor(Color.white);
 
@@ -43,6 +43,33 @@ public class CanvasGameOver extends myCanvas {
 			dbg.setFont(new Font("Raavi", Font.PLAIN, 25));
 
 			dbg.drawString("Aperte espaço para jogar novamente", 120, 400);
+
+		} else {
+
+			dbg.setColor(Color.white);
+
+			dbg.setFont(new Font("Raavi", Font.PLAIN, 40));
+
+			if (p1s == p2s) {
+				dbg.drawString("Empate!", GamePanel.PWIDTH / 2 - 50, 100);
+			} else if (p1s > p2s) {
+				dbg.drawString("Jogador 1 ganhou!", GamePanel.PWIDTH / 2 - 50,
+						100);
+			} else if (p1s < p2s) {
+				dbg.drawString("Jogador 2 ganhou!", GamePanel.PWIDTH / 2 - 50,
+						100);
+			}
+
+			dbg.drawString("Pontuação:", GamePanel.PWIDTH / 2 - 120, 200);
+
+			dbg.drawString("Jogador 1: " + p1s, GamePanel.PWIDTH / 2 - 50, 300);
+
+			dbg.drawString("Jogador 2: " + p2s, GamePanel.PWIDTH / 2 - 50, 350);
+
+			dbg.setFont(new Font("Raavi", Font.PLAIN, 25));
+
+			dbg.drawString("Aperte espaço para jogar novamente", 480, 500);
+
 		}
 
 	}

@@ -12,11 +12,11 @@ public class CanvasMenu extends myCanvas {
 
 		if (!GamePanel.playingMusic) {
 
-//			try {
-//				Sound.musica();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
+			// try {
+			// Sound.musica();
+			// } catch (Exception e) {
+			// e.printStackTrace();
+			// }
 
 			GamePanel.playingMusic = true;
 		}
@@ -77,7 +77,8 @@ public class CanvasMenu extends myCanvas {
 	public void keyPressed(KeyEvent e) {
 
 		if (e.getKeyCode() == KeyEvent.VK_SPACE
-				|| e.getKeyCode() == KeyEvent.VK_5) {
+				|| e.getKeyCode() == KeyEvent.VK_NUMPAD5
+				|| e.getKeyCode() == KeyEvent.VK_S) {
 
 			GamePanel.canvasAtivo = new CanvasDif();
 

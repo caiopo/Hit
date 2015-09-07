@@ -4,7 +4,8 @@ import java.awt.Color;
 
 public class ColorController implements Runnable {
 
-	private ColorCount[] c = { new ColorCount(), new ColorCount(), new ColorCount() };
+	private ColorCount[] c = { new ColorCount(), new ColorCount(),
+			new ColorCount() };
 	private Thread[] t = new Thread[c.length];
 
 	@Override
