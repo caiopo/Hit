@@ -1,4 +1,4 @@
-package game;
+package controllers;
 
 import java.util.Random;
 

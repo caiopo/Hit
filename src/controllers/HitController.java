@@ -1,6 +1,9 @@
-package game;
+package controllers;
 
 import java.util.Random;
+
+import canvas.CanvasGame;
+import canvas.Player;
 
 public class HitController implements Runnable {
 

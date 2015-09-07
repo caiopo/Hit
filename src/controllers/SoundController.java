@@ -1,4 +1,4 @@
-package game;
+package controllers;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +13,9 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public class Sound {
+import main.GamePanel;
+
+public class SoundController {
 
 	static String path = null;
 

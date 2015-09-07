@@ -1,4 +1,4 @@
-package game;
+package canvas;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -6,18 +6,20 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
+import main.GamePanel;
+import controllers.SoundController;
+
 public class CanvasMenu extends myCanvas {
 
 	public CanvasMenu() {
 
-		System.out.println("OI");
 		if (!GamePanel.playingMusic) {
 
-			// try {
-			// Sound.musica();
-			// } catch (Exception e) {
-			// e.printStackTrace();
-			// }
+			try {
+				SoundController.musica();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 			GamePanel.playingMusic = true;
 		}

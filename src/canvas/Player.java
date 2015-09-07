@@ -1,8 +1,12 @@
-package game;
+package canvas;
 
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+
+import main.GamePanel;
+import controllers.HitController;
+import controllers.SquareController;
 
 public class Player extends myCanvas {
 

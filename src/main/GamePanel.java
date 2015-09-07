@@ -2,7 +2,7 @@
  * v1.2 
  */
 
-package game;
+package main;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,6 +19,9 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import canvas.CanvasMenu;
+import canvas.myCanvas;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -267,7 +270,7 @@ public class GamePanel extends JPanel implements Runnable {
 	// resize to fit two players
 	public void resize() {
 
-		System.out.println("Resizing panel and frame");
+		// System.out.println("Resizing panel and frame");
 
 		instance.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
 
