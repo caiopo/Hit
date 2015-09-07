@@ -24,7 +24,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 	public static boolean playingMusic = false;
 	
-	public static int numPlayers = 1;
+	public static int numPlayers = 2;
 
 	public static final int PWIDTH = 600 * numPlayers;
 	public static final int PHEIGHT = 600;
