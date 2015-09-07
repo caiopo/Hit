@@ -31,6 +31,8 @@ public class SquareController implements Runnable {
 
 		// sizeX = sizeSquare * numSquareX;
 		// sizeY = sizeSquare * numSquareY;
+		
+		System.out.println(x);
 
 	}
 

@@ -12,11 +12,11 @@ public class CanvasMenu extends myCanvas {
 
 		if (!GamePanel.playingMusic) {
 
-			try {
-				Sound.musica();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+//			try {
+//				Sound.musica();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
 
 			GamePanel.playingMusic = true;
 		}

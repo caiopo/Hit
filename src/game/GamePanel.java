@@ -24,7 +24,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 	public static boolean playingMusic = false;
 
-	public static int numPlayers = 1;
+	public static int numPlayers = 2;
 
 	// public static int dificuldade = 0;
 
@@ -149,7 +149,7 @@ public class GamePanel extends JPanel implements Runnable {
 			}
 		});
 
-//		canvasAtivo = new CanvasPlayers();
+		canvasAtivo = new CanvasPlayers();
 
 	} // end of GamePanel()
 
@@ -230,6 +230,9 @@ public class GamePanel extends JPanel implements Runnable {
 		if (canvasAtivo != null) {
 			canvasAtivo.DesenhaSe(dbg);
 		}
+		dbg.setColor(Color.blue);
+		dbg.drawLine(0, 599, 600, 599);
+
 	}
 
 	public void paintComponent(Graphics g) {
@@ -258,7 +261,7 @@ public class GamePanel extends JPanel implements Runnable {
 		app.setLocation((int) (SWIDTH - PWIDTH) / 2,
 				(int) (SHEIGHT - PHEIGHT) / 2);
 		app.setVisible(true);
-		
+
 		canvasAtivo = new CanvasPlayers();
 
 	} // end of main()
@@ -266,16 +269,32 @@ public class GamePanel extends JPanel implements Runnable {
 	// resize to fit two players
 	public void resize() {
 
+		// instance.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
+		//
+		// mainFrame.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
+		//
+		// mainFrame.setLocation((int) (SWIDTH - PWIDTH) / 2,
+		// (int) (SHEIGHT - PHEIGHT) / 2);
+		//
+		// mainFrame.pack();
+
 		instance.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
 
-		mainFrame.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
+		mainFrame.pack();
 
 		mainFrame.setLocation((int) (SWIDTH - PWIDTH) / 2,
 				(int) (SHEIGHT - PHEIGHT) / 2);
 
-		mainFrame.pack();
-
-		instance = new GamePanel();
+		// if (dbImage == null) {
+		dbImage = new BufferedImage(PWIDTH, PHEIGHT,
+				BufferedImage.TYPE_INT_ARGB);
+		if (dbImage == null) {
+			System.out.println("dbImage is null");
+			return;
+		} else {
+			dbg = (Graphics2D) dbImage.getGraphics();
+		}
+		// }
 
 	}
 

@@ -33,12 +33,12 @@ public class CanvasGame extends myCanvas {
 		instance = this;
 
 		if (GamePanel.numPlayers == 2) {
-		
-			p2 = new Player(2);
-			
+
 			GamePanel.PWIDTH = 1200;
 
 			GamePanel.instance.resize();
+
+			p2 = new Player(2);
 
 		}
 
