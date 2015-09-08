@@ -295,8 +295,8 @@ public class GamePanel extends JPanel implements Runnable {
 			System.out.println("dbImage is null");
 			return;
 		} else {
-			dbg = (Graphics2D) dbImage.getGraphics();
-			// dbg = dbImage.createGraphics();
+			// dbg = (Graphics2D) dbImage.getGraphics();
+			dbg = dbImage.createGraphics();
 		}
 		// }
 
