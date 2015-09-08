@@ -13,6 +13,11 @@ public class CanvasDif extends myCanvas {
 	Color[] cores = { Color.GREEN, Color.yellow, Color.RED };
 	String[] dificuldade = { "1 - Easy", "2 - Medium", "3 - Hard" };
 
+	public CanvasDif() {
+		System.out.println("Entering CanvasDif");
+
+	}
+
 	@Override
 	public void SimulaSe(long diftime) {
 
@@ -28,8 +33,7 @@ public class CanvasDif extends myCanvas {
 			dbg.fillRect(largura * i, 0, largura, GamePanel.PHEIGHT);
 			dbg.setColor(Color.BLACK);
 			dbg.setFont(new Font("Raavi", Font.BOLD, 30));
-			dbg.drawString(dificuldade[i], largura * i + 30,
-					GamePanel.PHEIGHT / 2 - 30);
+			dbg.drawString(dificuldade[i], largura * i + 30, GamePanel.PHEIGHT / 2 - 30);
 
 		}
 		dbg.setFont(new Font("Raavi", Font.BOLD, 12));
@@ -40,20 +44,20 @@ public class CanvasDif extends myCanvas {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 
-		if (key == KeyEvent.VK_1 || key == KeyEvent.VK_NUMPAD1
-				|| key == KeyEvent.VK_Z) {
-			GamePanel.canvasAtivo = new CanvasGame(1);
+		if (key == KeyEvent.VK_1 || key == KeyEvent.VK_NUMPAD1 || key == KeyEvent.VK_Z) {
+			GamePanel.dificuldade = 1;
+			GamePanel.canvasAtivo = new CanvasGame();
 		}
 
-		if (key == KeyEvent.VK_2 || key == KeyEvent.VK_NUMPAD2
-				|| key == KeyEvent.VK_X) {
-			GamePanel.canvasAtivo = new CanvasGame(2);
+		if (key == KeyEvent.VK_2 || key == KeyEvent.VK_NUMPAD2 || key == KeyEvent.VK_X) {
+			GamePanel.dificuldade = 2;
+			GamePanel.canvasAtivo = new CanvasGame();
 
 		}
 
-		if (key == KeyEvent.VK_3 || key == KeyEvent.VK_NUMPAD3
-				|| key == KeyEvent.VK_C) {
-			GamePanel.canvasAtivo = new CanvasGame(3);
+		if (key == KeyEvent.VK_3 || key == KeyEvent.VK_NUMPAD3 || key == KeyEvent.VK_C) {
+			GamePanel.dificuldade = 3;
+			GamePanel.canvasAtivo = new CanvasGame();
 		}
 
 	}

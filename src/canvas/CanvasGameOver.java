@@ -13,6 +13,9 @@ public class CanvasGameOver extends myCanvas {
 	private int p1s, p2s;
 
 	public CanvasGameOver(int p1Score, int p2Score) {
+
+		System.out.println("Entering CanvasGameOver");
+
 		p1s = p1Score;
 		p2s = p2Score;
 	}
@@ -39,8 +42,7 @@ public class CanvasGameOver extends myCanvas {
 
 			dbg.drawString("Pontuação:", GamePanel.PWIDTH / 2 - 120, 200);
 
-			dbg.drawString(Integer.toString(p1s), GamePanel.PWIDTH / 2 - 50,
-					300);
+			dbg.drawString(Integer.toString(p1s), GamePanel.PWIDTH / 2 - 50, 300);
 
 			dbg.setFont(new Font("Raavi", Font.PLAIN, 25));
 
@@ -55,11 +57,9 @@ public class CanvasGameOver extends myCanvas {
 			if (p1s == p2s) {
 				dbg.drawString("Empate!", GamePanel.PWIDTH / 2 - 50, 100);
 			} else if (p1s > p2s) {
-				dbg.drawString("Jogador 1 ganhou!", GamePanel.PWIDTH / 2 - 50,
-						100);
+				dbg.drawString("Jogador 1 ganhou!", GamePanel.PWIDTH / 2 - 50, 100);
 			} else if (p1s < p2s) {
-				dbg.drawString("Jogador 2 ganhou!", GamePanel.PWIDTH / 2 - 50,
-						100);
+				dbg.drawString("Jogador 2 ganhou!", GamePanel.PWIDTH / 2 - 50, 100);
 			}
 
 			dbg.drawString("Pontuação:", GamePanel.PWIDTH / 2 - 120, 200);
@@ -91,7 +91,7 @@ public class CanvasGameOver extends myCanvas {
 		}
 
 		if (keyCode == KeyEvent.VK_SPACE) {
-			GamePanel.canvasAtivo = new CanvasGame(CanvasGame.dificuldade);
+			GamePanel.canvasAtivo = new CanvasGame();
 		}
 
 	}

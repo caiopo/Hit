@@ -27,15 +27,16 @@ public class GamePanel extends JPanel implements Runnable {
 
 	public static boolean playingMusic = false;
 
-	public static int numPlayers = 1;
+	public static int numPlayers = 0;
+
+	public static int dificuldade = 0;
 
 	// public static int dificuldade = 0;
 
 	public static int PWIDTH = 600;
 	public static final int PHEIGHT = 600;
 
-	private static Dimension screenSize = Toolkit.getDefaultToolkit()
-			.getScreenSize();
+	private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	private final static double SWIDTH = screenSize.getWidth();
 	private final static double SHEIGHT = screenSize.getHeight();
 
@@ -72,8 +73,7 @@ public class GamePanel extends JPanel implements Runnable {
 		requestFocus(); // JPanel now receives key events
 
 		if (dbImage == null) {
-			dbImage = new BufferedImage(PWIDTH, PHEIGHT,
-					BufferedImage.TYPE_INT_ARGB);
+			dbImage = new BufferedImage(PWIDTH, PHEIGHT, BufferedImage.TYPE_INT_ARGB);
 			if (dbImage == null) {
 				System.out.println("dbImage is null");
 				return;
@@ -253,41 +253,50 @@ public class GamePanel extends JPanel implements Runnable {
 		// create a JFrame to hold the timer test JPanel
 		JFrame app = new JFrame(title);
 
-		mainFrame = app;
-
 		app.getContentPane().add(ttPanel, BorderLayout.CENTER);
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		app.pack();
 
 		app.setResizable(false);
-		app.setLocation((int) (SWIDTH - PWIDTH) / 2,
-				(int) (SHEIGHT - PHEIGHT) / 2);
+		app.setLocation((int) (SWIDTH - PWIDTH) / 2, (int) (SHEIGHT - PHEIGHT) / 2);
 		app.setVisible(true);
+
+		mainFrame = app;
 
 	} // end of main()
 
 	// resize to fit two players
 	public void resize() {
 
-		// System.out.println("Resizing panel and frame");
+		int PWIDTH = 1200;
 
-		instance.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
+		System.out.println("Resizing panel and frame");
 
-		mainFrame.pack();
+		// instance.setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
+		//
+		// mainFrame.pack();
 
-		mainFrame.setLocation((int) (SWIDTH - PWIDTH) / 2,
-				(int) (SHEIGHT - PHEIGHT) / 2);
+		mainFrame.setSize(new Dimension(PWIDTH, PHEIGHT));
+
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		instance.setSize(new Dimension(PWIDTH, PHEIGHT));
+
+		mainFrame.setLocation((int) (SWIDTH - PWIDTH) / 2, (int) (SHEIGHT - PHEIGHT) / 2);
 
 		// if (dbImage == null) {
-		dbImage = new BufferedImage(PWIDTH, PHEIGHT,
-				BufferedImage.TYPE_INT_ARGB);
+		dbImage = new BufferedImage(PWIDTH, PHEIGHT, BufferedImage.TYPE_INT_ARGB);
 		if (dbImage == null) {
 			System.out.println("dbImage is null");
 			return;
 		} else {
-			// dbg = (Graphics2D) dbImage.getGraphics();
-			dbg = dbImage.createGraphics();
+			dbg = (Graphics2D) dbImage.getGraphics();
+			// dbg = dbImage.createGraphics();
 		}
 		// }
 

@@ -10,6 +10,10 @@ import main.GamePanel;
 
 public class CanvasPlayers extends myCanvas {
 
+	public CanvasPlayers() {
+		System.out.println("Entering CanvasPlayers");
+	}
+
 	@Override
 	public void SimulaSe(long diftime) {
 
@@ -23,8 +27,7 @@ public class CanvasPlayers extends myCanvas {
 		dbg.fillRect(0, 0, GamePanel.PWIDTH / 2, GamePanel.PHEIGHT);
 
 		dbg.setColor(Color.magenta);
-		dbg.fillRect(GamePanel.PWIDTH / 2, 0, GamePanel.PWIDTH,
-				GamePanel.PHEIGHT);
+		dbg.fillRect(GamePanel.PWIDTH / 2, 0, GamePanel.PWIDTH, GamePanel.PHEIGHT);
 
 		dbg.setColor(Color.yellow);
 
@@ -54,11 +57,15 @@ public class CanvasPlayers extends myCanvas {
 
 		if (key == KeyEvent.VK_1) {
 
+			GamePanel.numPlayers = 1;
+
 			GamePanel.canvasAtivo = new CanvasDif();
 
 		} else if (key == KeyEvent.VK_2) {
 
 			GamePanel.numPlayers = 2;
+
+//			GamePanel.PWIDTH = 1200;
 
 			GamePanel.canvasAtivo = new CanvasDif();
 

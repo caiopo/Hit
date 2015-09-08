@@ -11,8 +11,6 @@ public class CanvasGame extends myCanvas {
 
 	public static CanvasGame instance = null;
 
-	public static int dificuldade = 2;
-
 	public static Player p1 = null, p2 = null;
 
 	// public static boolean keys[][] = new boolean[3][3];
@@ -27,16 +25,23 @@ public class CanvasGame extends myCanvas {
 
 	// private SquareController sqrctl2;
 
-	public CanvasGame(int dif) {
+	public CanvasGame() {
 
-		dificuldade = dif;
-		// GamePanel.dificuldade = dif;
+		System.out.println("Entering CanvasGame");
+
+//		GamePanel.dificuldade = dif;
 
 		instance = this;
 
 		if (GamePanel.numPlayers == 2) {
 
 			GamePanel.PWIDTH = 1200;
+
+			// try {
+			// Thread.sleep(50);
+			// } catch (InterruptedException e) {
+			// e.printStackTrace();
+			// }
 
 			GamePanel.instance.resize();
 
@@ -94,8 +99,7 @@ public class CanvasGame extends myCanvas {
 			p2.DesenhaSe(dbg);
 			dbg.setColor(Color.black);
 
-			dbg.drawLine(GamePanel.PWIDTH / 2, 0, GamePanel.PWIDTH / 2,
-					GamePanel.PHEIGHT);
+			dbg.drawLine(GamePanel.PWIDTH / 2, 0, GamePanel.PWIDTH / 2, GamePanel.PHEIGHT);
 
 			// dbg.drawRect(0, 0, GamePanel.PWIDTH - 1, GamePanel.PHEIGHT - 1);
 		}

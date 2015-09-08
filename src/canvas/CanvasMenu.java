@@ -13,6 +13,8 @@ public class CanvasMenu extends myCanvas {
 
 	public CanvasMenu() {
 
+		System.out.println("Entering CanvasMenu");
+
 		if (!GamePanel.playingMusic) {
 
 			try {
@@ -43,28 +45,24 @@ public class CanvasMenu extends myCanvas {
 		dbg.drawString("HIT!", GamePanel.PWIDTH / 2 - 50, 100);
 
 		dbg.setFont(new Font("Raavi", Font.BOLD, 16));
-		dbg.drawString(
-				"Aperte a tecla correspondente ao quadrado vermelho no numpad ou teclado",
-				20, 200);
+		dbg.drawString("Aperte a tecla correspondente ao quadrado vermelho no numpad ou teclado", 20, 200);
 
-		String[] numpad = { "7|Q", "4|A", "1|Z", "8|W", "5|S", "2|X", "9|E",
-				"6|D", "3|C" };
+		String[] numpad = { "7|Q", "4|A", "1|Z", "8|W", "5|S", "2|X", "9|E", "6|D", "3|C" };
 
-		Color[][] colorMenu = { { Color.GREEN, Color.cyan, Color.pink },
-				{ Color.GRAY, Color.RED, Color.YELLOW },
+		Color[][] colorMenu = { { Color.GREEN, Color.cyan, Color.pink }, { Color.GRAY, Color.RED, Color.YELLOW },
 				{ Color.magenta, Color.ORANGE, Color.LIGHT_GRAY } };
 
 		int n = 0;
 
-		int sizeX = 100, sizeY = 100, x = (GamePanel.PWIDTH - 3 * sizeX) / 2, y = (GamePanel.PHEIGHT - 3 * sizeY) / 2 + 100;
+		int sizeX = 100, sizeY = 100, x = (GamePanel.PWIDTH - 3 * sizeX) / 2,
+				y = (GamePanel.PHEIGHT - 3 * sizeY) / 2 + 100;
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				dbg.setColor(colorMenu[j][i]);
 				dbg.fillRect(x + sizeX * i, y + sizeY * j, sizeX, sizeY);
 				dbg.setColor(new Color(50, 50, 50));
-				dbg.drawString(numpad[n], x + 40 + sizeX * i, y + 40 + sizeY
-						* j);
+				dbg.drawString(numpad[n], x + 40 + sizeX * i, y + 40 + sizeY * j);
 				n++;
 			}
 		}
@@ -81,8 +79,7 @@ public class CanvasMenu extends myCanvas {
 
 		int key = e.getKeyCode();
 
-		if (key == KeyEvent.VK_SPACE || key == KeyEvent.VK_NUMPAD5
-				|| key == KeyEvent.VK_S) {
+		if (key == KeyEvent.VK_SPACE || key == KeyEvent.VK_NUMPAD5 || key == KeyEvent.VK_S) {
 
 			GamePanel.canvasAtivo = new CanvasPlayers();
 

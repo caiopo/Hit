@@ -24,6 +24,9 @@ public class Player extends myCanvas {
 	private boolean running = true;
 
 	public Player(int playerNum) {
+
+		System.out.println("Starting a Player");
+
 		running = true;
 		vidas = 5;
 		pontuacao = 0;

@@ -2,8 +2,8 @@ package controllers;
 
 import java.util.Random;
 
-import canvas.CanvasGame;
 import canvas.Player;
+import main.GamePanel;
 
 public class HitController implements Runnable {
 
@@ -30,7 +30,7 @@ public class HitController implements Runnable {
 
 			descontar = true;
 
-			for (int i = 0; i < 750 / CanvasGame.dificuldade; i++) {
+			for (int i = 0; i < 750 / GamePanel.dificuldade; i++) {
 
 				if (countPressed() > 0) {
 					if (hit()) {

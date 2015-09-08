@@ -28,7 +28,7 @@ public class SoundController {
 
 		System.out.println(path);
 
-		musica2();
+//		musica2();
 	}
 
 	public static void musica2() throws UnsupportedAudioFileException,
