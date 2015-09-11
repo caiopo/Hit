@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 
 import main.GamePanel;
 
-public class CanvasGameOver extends myCanvas {
+public class CanvasGameOver extends MyCanvas {
 
 	private int p1s, p2s;
 

@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import main.GamePanel;
 import controllers.SoundController;
 
-public class CanvasMenu extends myCanvas {
+public class CanvasMenu extends MyCanvas {
 
 	public CanvasMenu() {
 

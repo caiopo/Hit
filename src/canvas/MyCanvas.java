@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 
-public abstract class myCanvas {
+public abstract class MyCanvas {
 
 	
 	public abstract void SimulaSe(long diftime);

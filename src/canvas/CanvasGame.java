@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 
 import main.GamePanel;
 
-public class CanvasGame extends myCanvas {
+public class CanvasGame extends MyCanvas {
 
 	public static CanvasGame instance = null;
 

@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 
 import main.GamePanel;
 
-public class CanvasDif extends myCanvas {
+public class CanvasDif extends MyCanvas {
 
 	Color[] cores = { Color.GREEN, Color.yellow, Color.RED };
 	String[] dificuldade = { "1 - Easy", "2 - Medium", "3 - Hard" };

@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 
 import main.GamePanel;
 
-public class CanvasPlayers extends myCanvas {
+public class CanvasPlayers extends MyCanvas {
 
 	public CanvasPlayers() {
 		System.out.println("Entering CanvasPlayers");

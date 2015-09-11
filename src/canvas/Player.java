@@ -8,7 +8,7 @@ import main.GamePanel;
 import controllers.HitController;
 import controllers.SquareController;
 
-public class Player extends myCanvas {
+public class Player extends MyCanvas {
 
 	private int playerNum = 0;
 

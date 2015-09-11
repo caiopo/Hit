@@ -21,7 +21,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import canvas.CanvasMenu;
-import canvas.myCanvas;
+import canvas.MyCanvas;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -58,7 +58,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public static int FPS, SFPS;
 	public static int fpscount;
 
-	public static myCanvas canvasAtivo = null;
+	public static MyCanvas canvasAtivo = null;
 
 	public GamePanel() {
 
